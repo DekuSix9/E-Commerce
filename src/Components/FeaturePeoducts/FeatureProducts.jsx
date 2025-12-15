@@ -31,7 +31,7 @@ const FeatureProducts = () => {
                 {
                 featuredProducts.slice(0,visible).map((p)=>
                 <div key={p.id} >
-                    <div className=" bg-white  rounded-2xl ">
+                    <div className=" bg-[#F8F8F8] rounded-2xl ">
                         {/* badge and cart logo */}
                        <div className=" flex justify-between pt-3 px-3">
                         <button className=" bg-[#E27A1E] rounded-lg px-3 text-md font-bold
@@ -40,7 +40,7 @@ const FeatureProducts = () => {
                     </div>
                     {/* product image */}
                    <div className=" flex items-center justify-center pb-14 pt-6">
-                       <img className=" h-48 w-52" src={p.image}></img>
+                       <img className=" h-48 w-52 " src={p.image}></img>
                    </div>
                      
                     </div>

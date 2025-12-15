@@ -59,7 +59,7 @@ const ProductsSection = () => {
 
           {/* product image */}
           <div className="flex items-center justify-center pb-14 pt-6">
-            <img className="h-48 w-52" src={p.image} alt={p.title} />
+            <img className="h-48 w-52 " src={p.image} alt={p.title} />
           </div>
         </div>
 

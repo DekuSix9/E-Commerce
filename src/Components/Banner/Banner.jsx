@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import image1 from '../../assets/Banner/headphoneBaneer.jpg'
 import image2 from '../../assets/Banner/airpodsBanner.jpg'
-import image3 from '../../assets/Banner/smartwatchBanner.jpg'
+import image3 from '../../assets/Banner/moreheadphones.jpg'
 import logo from '../../assets/Banner/logo.png'
 
 const Banner = () => {
@@ -19,7 +19,7 @@ const Banner = () => {
   const slides = [
     { id: 1, image: image1, title: "Headphones", price: 'Tk.15000' },
     { id: 2, image: image2, title: "Airpods Pro", price: 'Tk.12000' },
-    { id: 3, image: image3, title: "Smart Watch", price: 'Tk.25000' },
+    { id: 3, image: image3, title: "Headphones", price: 'Tk.25000' },
   ];
 
   return (
@@ -36,7 +36,7 @@ const Banner = () => {
 
               {/* center title */}
               <div className="absolute inset-0 flex items-center justify-center">
-           <h2 className="text-4xl md:text-7xl font-extrabold uppercase text-white tracking-widest">
+           <h2 className="text-4xl md:text-7xl  font-extrabold uppercase text-white tracking-widest">
                 {slide.title}
                 </h2>
                </div>

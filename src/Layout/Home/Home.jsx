@@ -8,7 +8,7 @@ import PromoBanner from "../../Components/PromoBanner/PromoBanner";
 
 const Home = () => {
     return (
-        <div>
+        <div className=" font-manrope">
             <Banner></Banner>
             <Category></Category>
             <FeatureProducts></FeatureProducts>

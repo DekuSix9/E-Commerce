@@ -12,8 +12,8 @@ import { useState } from 'react';
 const Navbar = () => {
   const [menuOpen,setMenuOpen]=useState(false);
     return (
-      <div className=' sticky top-0 bg-white z-50'>
-          <div className=" max-w-11/12 mx-auto py-8">
+      <div className=' sticky top-0 bg-white z-50 '>
+          <div className=" max-w-11/12 mx-auto py-6">
             <nav className=" flex justify-between items-center">
                {/* logo */}
                <div className=' flex items-center'>
