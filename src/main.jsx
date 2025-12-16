@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import Root from './Layout/Root/Root';
 import Home from './Layout/Home/Home';
+import CategoryDetails from './Pages/CategoryDetail/CategoryDetails';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,15 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>
+      },
+      {
+        path:'category/:category',
+        element:<CategoryDetails></CategoryDetails>,
+        loader:async()=>{
+          const res=await fetch('/products.json');
+          return res.json();
+        }
+        
       }
     ]
   },

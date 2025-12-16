@@ -5,6 +5,7 @@ import watchImg from '../../assets/Category/watch.svg'
 import headphoneImg from '../../assets/Category/headphone.svg'
 import accessoryImg from '../../assets/Category/image 13.svg'
 import arrow from '../../assets/Category/arrow.svg'
+import { Link } from "react-router-dom";
 
 
 const Category = () => {
@@ -35,7 +36,7 @@ const Category = () => {
                    {
                 uniqueCategory.map((cate)=>
                 
-                <div className=" bg-[#F8F8F8] rounded-2xl py-8" key={cate.id}>
+                <Link to={`/category/${cate}`} className=" bg-[#F8F8F8] rounded-2xl py-8" key={cate.id}>
                     <div className=" flex justify-between items-center mb-4 px-4 ">
                         <div>
                             <p className=" text-[#737373] text-lg ">{categories.filter(item=>item.category===cate).length} Items</p>
@@ -50,7 +51,7 @@ const Category = () => {
                   </img>
   
 
-                </div>)
+                </Link>)
             }
             </div>
            
