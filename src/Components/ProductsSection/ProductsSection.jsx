@@ -1,11 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import cartLogo from '../../assets/Feature/cart.svg'
+
+import ProductDetails from "../../Pages/ProductDetail/ProductDetails";
+import { CartProvider } from "../../Layout/CartContext/CartContext";
 
 
 const ProductsSection = () => {
     const [products,setProducts]=useState([]);
     const [selected,setSelected]=useState('All');
     const [visible,setVisible]=useState(8);
+    const [modal,setModal]=useState(null);
+    const {addToCart}=useContext(CartProvider)
 
     useEffect(()=>{
         fetch('/products.json')
@@ -18,6 +23,11 @@ const ProductsSection = () => {
 
       const handleSeeMore=()=>{
         setVisible(prev=>prev+4)
+      };
+
+      const openModal=(id)=>{
+        setModal(id);
+        document.getElementById('my_modal_3').showModal();
       }
 
     return (
@@ -47,24 +57,24 @@ const ProductsSection = () => {
          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
   {
     filteredProduct.slice(0,visible).map((p) => (
-      <div key={p.id} className=" py-12">
+      <div  key={p.id} className=" py-12">
         <div className="bg-[#F8F8F8] rounded-2xl">
           {/* badge and cart logo */}
           <div className="flex justify-between pt-3 px-3">
             <button className="bg-[#E27A1E] rounded-lg px-3 text-md font-bold text-white">
               {p.badge}
             </button>
-            <img src={cartLogo} alt="cart" />
+            <img onClick={()=>addToCart(p)} src={cartLogo} className=" cursor-pointer" />
           </div>
 
           {/* product image */}
-          <div className="flex items-center justify-center pb-14 pt-6">
-            <img className="h-48 w-52 " src={p.image} alt={p.title} />
+          <div onClick={()=>openModal(p.id)}  className="flex items-center cursor-pointer justify-center pb-14 pt-6">
+            <img className="h-48 w-52 " src={p.image}  />
           </div>
         </div>
 
         {/* prices and title */}
-        <div className="flex flex-col items-start mt-4">
+        <div onClick={()=>openModal(p.id)} className="flex flex-col cursor-pointer items-start mt-4">
           <h1 className="text-lg md:text-2xl font-medium mb-1">{p.title}</h1>
 
           <span className="relative text-[#BDBDBD] text-lg">
@@ -89,7 +99,7 @@ const ProductsSection = () => {
                 )
                }
                
-
+             <ProductDetails productId={modal}/>
            
         </div>
     );

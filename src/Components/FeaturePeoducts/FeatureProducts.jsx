@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import cartLogo from '../../assets/Feature/cart.svg'
+import ProductDetails from "../../Pages/ProductDetail/ProductDetails";
 
 
 const FeatureProducts = () => {
     const [products,setProducts]=useState([]);
-    const [visible,setVisible]=useState(4)
+    const [visible,setVisible]=useState(4);
+    const[modal,setModal]=useState(null)
 
     useEffect(()=>{
         fetch('/products.json')
@@ -18,7 +20,10 @@ const FeatureProducts = () => {
        setVisible(prev => prev + 4);
           };
 
-
+   const openModal=(id)=>{
+    setModal(id);
+    document.getElementById("my_modal_3").showModal();
+   }
 
 
 
@@ -39,14 +44,14 @@ const FeatureProducts = () => {
                           <img  src={cartLogo}></img>
                     </div>
                     {/* product image */}
-                   <div className=" flex items-center justify-center pb-14 pt-6">
+                   <div onClick={()=>openModal(p.id)} className=" flex items-center justify-center pb-14 pt-6 cursor-pointer">
                        <img className=" h-48 w-52 " src={p.image}></img>
                    </div>
                      
                     </div>
                     
                     {/* prices and title */}
-                    <div className="flex flex-col items-start mt-4">
+                    <div onClick={()=>openModal(p.id)} className="flex flex-col items-start mt-4 cursor-pointer">
                         <h1 className=" text-lg md:text-2xl font-medium mb-1">{p.title}</h1>
              <span className="relative text-[#BDBDBD] text-lg">
              {p.oldPrice}
@@ -77,7 +82,7 @@ const FeatureProducts = () => {
         </div>
 
             
-
+    <ProductDetails productId={modal}></ProductDetails>
 
         </div>
         

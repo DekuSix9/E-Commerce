@@ -1,5 +1,5 @@
 
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo/Logo.svg'
 import { BsCart } from "react-icons/bs";
 import { MdOutlineAccountCircle } from "react-icons/md";
@@ -45,7 +45,10 @@ const Navbar = () => {
 
                 {/* desktp icons  */}
           <div className="hidden md:flex items-center gap-4">
-          <BsCart className="w-6 h-6" />
+            
+                <BsCart className="w-6 h-6" />
+        
+          
           <MdOutlineAccountCircle className="w-6 h-6" />
             </div>
 

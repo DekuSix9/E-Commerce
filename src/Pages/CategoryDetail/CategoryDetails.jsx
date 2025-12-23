@@ -1,14 +1,29 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import cartLogo from '../../assets/Feature/cart.svg'
+import { useState } from "react";
+import ProductDetails from "../ProductDetail/ProductDetails";
 
 
 const CategoryDetails = () => {
     const {category}=useParams();
     const categoryData=useLoaderData();
-    const categoryDetails=categoryData.filter((item)=>item.category.toLowerCase()===category.toLowerCase())
+    const categoryDetails=categoryData.filter((item)=>item.category.toLowerCase()===category.toLowerCase());
+    const [modal,setModal]=useState(null);
+
+    const openModal=(id)=>{
+      setModal(id);
+       document.getElementById('my_modal_3').showModal();
+    }
+
+
+
     return (
         <div className=" max-w-11/12 mx-auto font-manrope py-10">
-             <h1 className=" capitalize  text-center  text-2xl md:text-3xl font-bold mb-2">{category}</h1>
+            <div className=" flex flex-col items-center gap-1">
+                <h1 className=" capitalize  text-2xl md:text-3xl font-bold mb-2">{category}</h1>
+             <button className=" border border-[#737373] px-8 py-1 rounded-lg font-medium">{categoryDetails.length} Products</button>
+            </div>
+             
                {/* products Details */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
              {
@@ -24,13 +39,13 @@ const CategoryDetails = () => {
                      </div>
            
                      {/* product image */}
-                     <div className="flex items-center justify-center pb-14 pt-6">
+                     <div onClick={()=>openModal(p.id)} className="flex items-center justify-center pb-14 pt-6 cursor-pointer">
                        <img className="h-48 w-52 " src={p.image} alt={p.title} />
                      </div>
                    </div>
            
                    {/* prices and title */}
-                   <div className="flex flex-col items-start mt-4">
+                   <div onClick={()=>openModal(p.id)} className="flex flex-col items-start mt-4 cursor-pointer">
                      <h1 className="text-lg md:text-2xl font-medium mb-1">{p.title}</h1>
            
                      <span className="relative text-[#BDBDBD] text-lg">
@@ -46,6 +61,7 @@ const CategoryDetails = () => {
                    ))
                     }
                   </div>
+                  <ProductDetails productId={modal} ></ProductDetails>
         </div>
     );
 };
