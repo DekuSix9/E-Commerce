@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
 import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
 import { CiYoutube } from "react-icons/ci";
 import { CiTwitter } from "react-icons/ci";
+import { CartProvider } from "../../Layout/CartContext/CartContext";
 
 
 const ProductDetails = ({ productId }) => {
   const [product, setProduct] = useState(null);
+  const {addToCart}=useContext(CartProvider)
 
   useEffect(() => {
     fetch('/productDetails.json')
@@ -19,7 +21,7 @@ const ProductDetails = ({ productId }) => {
   }, [productId]);
 
    if (!product) {
-    return <p className="text-center">Loading product...</p>;
+    return <p className="text-center"></p>;
   }
 
   
@@ -67,13 +69,13 @@ const ProductDetails = ({ productId }) => {
           </span>
               </div>
               {/* description */}
-              <div className=" mt-4 space-y-1">
+              <div className=" mt-4 space-y-3">
                 <p className=" text-gray-500">{product.description}</p>
                 <p className=" font-medium text-lg text-gray-700">{product.stock} left</p>
               </div>
               {/* button */}
               <div className=" mt-6">
-                <button className="bg-[#E27A1E] rounded-lg px-6 py-2 text-md font-bold text-white hover:bg-gray-500">ADD TO CART</button>
+                <button onClick={()=>addToCart(product)} className=" cursor-pointer bg-[#E27A1E] rounded-lg px-6 py-2 text-md font-bold text-white hover:bg-gray-500">ADD TO CART</button>
               </div>
               {/* social icons */}
               <div className=' flex gap-2 text-black mt-4 '>

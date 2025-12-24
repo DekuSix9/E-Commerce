@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import cartLogo from '../../assets/Feature/cart.svg'
 import ProductDetails from "../../Pages/ProductDetail/ProductDetails";
+import { CartProvider } from "../../Layout/CartContext/CartContext";
 
 
 const FeatureProducts = () => {
     const [products,setProducts]=useState([]);
     const [visible,setVisible]=useState(4);
-    const[modal,setModal]=useState(null)
+    const[modal,setModal]=useState(null);
+    const{addToCart}=useContext(CartProvider)
+   
 
     useEffect(()=>{
         fetch('/products.json')
@@ -41,7 +44,7 @@ const FeatureProducts = () => {
                        <div className=" flex justify-between pt-3 px-3">
                         <button className=" bg-[#E27A1E] rounded-lg px-3 text-md font-bold
                          text-white">{p.badge}</button>
-                          <img  src={cartLogo}></img>
+                          <img onClick={()=>addToCart(p)} className=" cursor-pointer"  src={cartLogo}></img>
                     </div>
                     {/* product image */}
                    <div onClick={()=>openModal(p.id)} className=" flex items-center justify-center pb-14 pt-6 cursor-pointer">

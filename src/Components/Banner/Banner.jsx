@@ -4,6 +4,7 @@ import image2 from '../../assets/Banner/airpodsBanner.jpg'
 import image3 from '../../assets/Banner/moreheadphones.jpg'
 import logo from '../../assets/Banner/logo.png'
 
+
 const Banner = () => {
   const settings = {
     dots: true,
@@ -24,6 +25,7 @@ const Banner = () => {
 
   return (
     <div className="max-w-11/12 mx-auto">
+      
       <div className="carousel-container">
         <Slider {...settings}>
           {slides.map((slide) => (

@@ -1,7 +1,8 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import cartLogo from '../../assets/Feature/cart.svg'
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ProductDetails from "../ProductDetail/ProductDetails";
+import { CartProvider } from "../../Layout/CartContext/CartContext";
 
 
 const CategoryDetails = () => {
@@ -9,6 +10,7 @@ const CategoryDetails = () => {
     const categoryData=useLoaderData();
     const categoryDetails=categoryData.filter((item)=>item.category.toLowerCase()===category.toLowerCase());
     const [modal,setModal]=useState(null);
+    const {addToCart}=useContext(CartProvider)
 
     const openModal=(id)=>{
       setModal(id);
@@ -35,7 +37,7 @@ const CategoryDetails = () => {
                        <button className="bg-[#E27A1E] rounded-lg px-3 text-md font-bold text-white">
                          {p.badge}
                        </button>
-                       <img src={cartLogo} alt="cart" />
+                       <img onClick={()=>addToCart(p)} className=" cursor-pointer" src={cartLogo} alt="cart" />
                      </div>
            
                      {/* product image */}

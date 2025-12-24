@@ -6,11 +6,14 @@ import { MdOutlineAccountCircle } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { useState } from 'react';
+import Cart from '../../Pages/Cart/Cart';
+
 
 
 
 const Navbar = () => {
   const [menuOpen,setMenuOpen]=useState(false);
+ 
     return (
       <div className=' sticky top-0 bg-white z-50 '>
           <div className=" max-w-11/12 mx-auto py-6">
@@ -20,10 +23,12 @@ const Navbar = () => {
                  <img className=' w-20 md:w-40' src={logo}></img>
                </div>
               
-                   {/* right side contents */}
+                   {/*  icons */}
                <div className=' flex items-center gap-4 md:hidden'>
-                <BsCart className=' w-5 h-5'></BsCart>
-                <MdOutlineAccountCircle className=' w-5 h-5'></MdOutlineAccountCircle>
+                 <label htmlFor="my-drawer-5" className="cursor-pointer">
+              <BsCart className="w-5 h-5" />
+            </label>
+                  <MdOutlineAccountCircle className=' w-5 h-5'></MdOutlineAccountCircle>
 
                </div>
                {/* mobile menu button */}
@@ -43,12 +48,12 @@ const Navbar = () => {
                  <NavLink>Contact us</NavLink>
                </div>
 
-                {/* desktp icons  */}
+                {/* Desktop icons  */}
           <div className="hidden md:flex items-center gap-4">
-            
-                <BsCart className="w-6 h-6" />
-        
-          
+            {/* cartIcon */}
+            <label htmlFor="my-drawer-5" className="cursor-pointer">
+              <BsCart className="w-5 h-5" />
+            </label>
           <MdOutlineAccountCircle className="w-6 h-6" />
             </div>
 
@@ -76,11 +81,8 @@ const Navbar = () => {
        
       )}
                  
-
-
-
-
-          </div>
+        </div>
+          <Cart/>
       </div>
        
     );
