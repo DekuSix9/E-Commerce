@@ -7,14 +7,18 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { useContext, useState } from 'react';
 import Cart from '../../Pages/Cart/Cart';
-import AuthProvide from '../../Provider/AuthProvider/AuthProvide';
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvide";
+
 
 
 
 
 const Navbar = () => {
   const [menuOpen,setMenuOpen]=useState(false);
-  const{user,logOut}=useContext(AuthProvide)
+  const{user,logOut}=useContext(AuthContext);
+  const handleLogOut=()=>{
+    logOut();
+  }
  
     return (
       <div className=' sticky top-0 bg-white z-50 '>
@@ -30,7 +34,13 @@ const Navbar = () => {
                  <label htmlFor="my-drawer-5" className="cursor-pointer">
               <BsCart className="w-5 h-5" />
             </label>
-                   <Link to='/login'><MdOutlineAccountCircle className="w-5 h-5" /></Link>
+                  
+                   {
+                    user?<button  onClick={handleLogOut} className="bg-red-600 cursor-pointer  hover:bg-red-700 text-white font-medium px-5 py-2 rounded-full
+              shadow-md transition duration-200">Log Out</button>
+              :
+                 <Link to='/login'><MdOutlineAccountCircle className="w-5 h-5" /></Link>
+                   }
 
                </div>
                {/* mobile menu button */}
@@ -56,7 +66,12 @@ const Navbar = () => {
             <label htmlFor="my-drawer-5" className="cursor-pointer">
               <BsCart className="w-5 h-5" />
             </label>
-            <Link to='/login'><MdOutlineAccountCircle className="w-6 h-6" /></Link>
+              {
+                    user?<button  onClick={handleLogOut} className="bg-red-600 cursor-pointer  hover:bg-red-700 text-white font-medium px-5 py-2 rounded-full
+              shadow-md transition duration-200">Log Out</button>
+              :
+                 <Link to='/login'><MdOutlineAccountCircle className="w-6 h-6" /></Link>
+                   }
           
             </div>
 
