@@ -28,7 +28,7 @@ const Navbar = () => {
                  <label htmlFor="my-drawer-5" className="cursor-pointer">
               <BsCart className="w-5 h-5" />
             </label>
-                  <MdOutlineAccountCircle className=' w-5 h-5'></MdOutlineAccountCircle>
+                   <Link to='/login'><MdOutlineAccountCircle className="w-5 h-5" /></Link>
 
                </div>
                {/* mobile menu button */}
@@ -54,7 +54,8 @@ const Navbar = () => {
             <label htmlFor="my-drawer-5" className="cursor-pointer">
               <BsCart className="w-5 h-5" />
             </label>
-          <MdOutlineAccountCircle className="w-6 h-6" />
+            <Link to='/login'><MdOutlineAccountCircle className="w-6 h-6" /></Link>
+          
             </div>
 
             </nav>

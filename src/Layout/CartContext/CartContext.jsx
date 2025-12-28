@@ -23,6 +23,8 @@ const CartContext = ({children}) => {
     const addToCart=(product)=>{
         setCart([...cart,product])
     }
+
+    
     const removeItem=(id)=>{
       setCart(cart.filter(item=>item.id!==id))
     }

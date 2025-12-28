@@ -10,6 +10,10 @@ import Home from './Layout/Home/Home';
 import CategoryDetails from './Pages/CategoryDetail/CategoryDetails';
 import CartContext from './Layout/CartContext/CartContext';
 import Cart from './Pages/Cart/Cart';
+import CartDetails from './Pages/CartDetails/CartDetails';
+import CheckOut from './Pages/CheckOut/CheckOut';
+import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +33,22 @@ const router = createBrowserRouter([
         }
       },
 
-    
+    {
+      path:'cart',
+      element:<CartDetails/>
+    },
+    {
+      path:'checkout',
+      element:<CheckOut/>
+    },
+    {
+      path:'login',
+      element:<Login></Login>
+    },
+    {
+      path:'register',
+      element:<Register></Register>
+    }
       
     ]
   }

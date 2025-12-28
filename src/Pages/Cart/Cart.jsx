@@ -1,32 +1,40 @@
-
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CartProvider } from "../../Layout/CartContext/CartContext";
 import { AiOutlineDelete } from "react-icons/ai";
+import { MdOutlineCancel } from "react-icons/md";
+import { Link, useLocation } from "react-router-dom";
 
 const Cart = () => {
   const { cart, removeItem } = useContext(CartProvider);
+  const location = useLocation();
+
+  useEffect(() => {
+    const drawer = document.getElementById("my-drawer-5");
+    if (drawer) drawer.checked = false;
+  }, [location.pathname]);
 
   return (
     <div className="drawer drawer-end z-50 font-open">
       <input id="my-drawer-5" type="checkbox" className="drawer-toggle" />
 
       <div className="drawer-side">
-        <label htmlFor="my-drawer-5" className="drawer-overlay"></label>
+        <label htmlFor="my-drawer-5" className="drawer-overlay" />
 
-        <div className="bg-base-200 min-h-full w-96 p-5 relative">
+        {/* make the panel a flex column */}
+        <div className="bg-base-200 min-h-full w-96 p-5 relative flex flex-col">
 
-          {/* close button */}
+          {/* Close button */}
           <label
             htmlFor="my-drawer-5"
             className="absolute top-3 right-3 cursor-pointer text-gray-600 hover:text-gray-900"
           >
-            ✕
+            <MdOutlineCancel className="h-5 w-5" />
           </label>
 
-          <h2 className="text-xl font-bold mb-4 mt-6">Shopping Cart</h2>
+          <h2 className="text-2xl font-bold mb-4 mt-6">Shopping Cart</h2>
 
-          {/* cart items */}
-          <div className="overflow-y-auto max-h-[65vh] pr-2">
+          {/* cart items — THIS WILL SCROLL */}
+          <div className="flex-1 overflow-y-auto pr-2 pb-4">
             {cart.length === 0 ? (
               <p className="text-gray-500">Cart is empty</p>
             ) : (
@@ -37,50 +45,46 @@ const Cart = () => {
                 >
                   <div>
                     <p className="font-semibold">{item.title}</p>
+                    <p className="mt-2 text-gray-500">{item.price}</p>
                   </div>
 
-                  {/* delete icon */}
                   <div className="relative h-20 w-20">
                     <img
                       src={item.image}
-                      className="h-20 w-20 object-cover rounded"/>
-
+                      className="h-20 w-20 object-cover rounded"
+                    />
                     <button
                       onClick={() => removeItem(item.id)}
-                      className="absolute -top-2 -right-2 shadow-md 
-                      rounded-full p-1 bg-black/50 cursor-pointer" >
+                      className="absolute -top-2 -right-2 shadow-md rounded-full p-1 bg-black/50"
+                    >
                       <AiOutlineDelete className="text-white h-4 w-4" />
                     </button>
                   </div>
                 </div>
               ))
-               )}
-                </div>
-
-          {/* subtotal & buttons */}
-          <div className="absolute bottom-3 left-5 right-5">
-
-            <div className="flex mb-4 font-bold">
-              <span>SUBTOTAL:</span>
-              <span>123$</span> 
-            </div>
-
-            <button className="w-full border border-gray-400 bg-gray-200 hover:bg-gray-300 py-3
-             rounded-md font-semibold mb-3 cursor-pointer">
-              VIEW CART
-            </button>
-
-            <button className="w-full bg-black hover:bg-gray-950 text-white py-3 
-            rounded-md font-semibold cursor-pointer">
-              CHECKOUT
-            </button>
-
+            )}
           </div>
 
+          {/* Buttons — NO MORE ABSOLUTE POSITIONING */}
+          <div className="space-y-3 pt-2">
+            <Link
+              to="/cart"
+              className="w-full block border border-gray-400 bg-gray-200 hover:bg-gray-300 py-3 rounded-md text-center font-semibold"
+            >
+              VIEW CART
+            </Link>
+
+            <Link
+              to="/checkout"
+              className="w-full block bg-black hover:bg-gray-950 text-white py-3 rounded-md text-center font-semibold"
+            >
+              CHECKOUT
+            </Link>
+          </div>
         </div>
       </div>
-        </div>
-   );
-  };
+    </div>
+  );
+};
 
 export default Cart;
