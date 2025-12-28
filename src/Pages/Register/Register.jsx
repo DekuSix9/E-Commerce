@@ -1,15 +1,25 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvide";
 
 
 const Register = () => {
+  const {createNewUser}=useContext(AuthContext);
      
     const handleRegisterSubmit=(event)=>{
         event.preventDefault();
 
          const name=event.target.name.value;
-    const photo=event.target.photo.value;
     const email=event.target.email.value;
     const password=event.target.password.value;
-    console.log(name,photo,email,password)
+    console.log(name,email,password)
+        createNewUser(email,password)
+        .then(result=>{
+          console.log(result.user)
+        })
+        .catch(error=>{
+          console.log(error.message)
+        })
+
 
     }
 
@@ -37,19 +47,6 @@ const Register = () => {
           />
         </div>
        
-
-        {/* Photo URL */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Photo URL
-          </label>
-          <input
-            type="url"
-            name="photo"
-            placeholder="Enter photo URL"
-            className="w-full px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-          />
-        </div>
 
         {/* Email */}
         <div className="mb-4">

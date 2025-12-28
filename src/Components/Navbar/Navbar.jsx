@@ -5,14 +5,16 @@ import { BsCart } from "react-icons/bs";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Cart from '../../Pages/Cart/Cart';
+import AuthProvide from '../../Provider/AuthProvider/AuthProvide';
 
 
 
 
 const Navbar = () => {
   const [menuOpen,setMenuOpen]=useState(false);
+  const{user,logOut}=useContext(AuthProvide)
  
     return (
       <div className=' sticky top-0 bg-white z-50 '>
