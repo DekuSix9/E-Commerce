@@ -15,6 +15,7 @@ import CheckOut from './Pages/CheckOut/CheckOut';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import AuthProvide from './Provider/AuthProvider/AuthProvide';
+import PrivateLayout from './Layout/PrivateLayout/PrivateLayout';
 
 
 
@@ -38,11 +39,11 @@ const router = createBrowserRouter([
 
     {
       path:'cart',
-      element:<CartDetails/>
+      element:<PrivateLayout><CartDetails/></PrivateLayout>   
     },
     {
       path:'checkout',
-      element:<CheckOut/>
+      element:<PrivateLayout><CheckOut/></PrivateLayout>
     },
     {
       path:'login',

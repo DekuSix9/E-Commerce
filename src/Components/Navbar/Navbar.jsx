@@ -36,7 +36,7 @@ const Navbar = () => {
             </label>
                   
                    {
-                    user?<button  onClick={handleLogOut} className="bg-red-600 cursor-pointer  hover:bg-red-700 text-white font-medium px-5 py-2 rounded-full
+                    user?<button  onClick={handleLogOut} className="bg-red-600 cursor-pointer  hover:bg-red-700 text-white font-medium px-4 py-2 rounded-full
               shadow-md transition duration-200">Log Out</button>
               :
                  <Link to='/login'><MdOutlineAccountCircle className="w-5 h-5" /></Link>
@@ -67,8 +67,8 @@ const Navbar = () => {
               <BsCart className="w-5 h-5" />
             </label>
               {
-                    user?<button  onClick={handleLogOut} className="bg-red-600 cursor-pointer  hover:bg-red-700 text-white font-medium px-5 py-2 rounded-full
-              shadow-md transition duration-200">Log Out</button>
+                    user?<button  onClick={handleLogOut} className="bg-red-600 cursor-pointer  hover:bg-red-700
+                     text-white font-medium px-4 py-2 rounded-full shadow-md transition duration-200">Log Out</button>
               :
                  <Link to='/login'><MdOutlineAccountCircle className="w-6 h-6" /></Link>
                    }

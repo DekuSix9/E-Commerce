@@ -5,11 +5,23 @@ import { CiInstagram } from "react-icons/ci";
 import { CiYoutube } from "react-icons/ci";
 import { CiTwitter } from "react-icons/ci";
 import { CartProvider } from "../../Layout/CartContext/CartContext";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvide";
 
 
 const ProductDetails = ({ productId }) => {
   const [product, setProduct] = useState(null);
-  const {addToCart}=useContext(CartProvider)
+  const {addToCart}=useContext(CartProvider);
+  const {user}=useContext(AuthContext);
+  const [success, setSuccess] = useState(false);
+
+  const addToCartHandler=(product)=>{
+    if(!user){
+      alert("Please login")
+    }
+    addToCart(product);
+    setSuccess(true);
+    setTimeout(() => setSuccess(false), 3000);
+  }
 
   useEffect(() => {
     fetch('/productDetails.json')
@@ -28,6 +40,27 @@ const ProductDetails = ({ productId }) => {
 
   return (
     <div className=" font-open">
+       {success && (
+        <div className="fixed top-6 right-6 z-50">
+          <div role="alert" className="alert alert-success">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 shrink-0 stroke-current"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 
+                  0 9 9 0 0118 0z"
+              />
+            </svg>
+            <span>Product added to cart successfully!</span>
+          </div>
+        </div>
+      )}
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box max-w-4xl w-full">
           <form method="dialog">
@@ -75,7 +108,7 @@ const ProductDetails = ({ productId }) => {
               </div>
               {/* button */}
               <div className=" mt-6">
-                <button onClick={()=>addToCart(product)} className=" cursor-pointer bg-[#E27A1E] rounded-lg px-6 py-2 text-md font-bold text-white hover:bg-gray-500">ADD TO CART</button>
+                <button onClick={()=>addToCartHandler(product)} className=" cursor-pointer bg-[#E27A1E] rounded-lg px-6 py-2 text-md font-bold text-white hover:bg-gray-500">ADD TO CART</button>
               </div>
               {/* social icons */}
               <div className=' flex gap-2 text-black mt-4 '>
