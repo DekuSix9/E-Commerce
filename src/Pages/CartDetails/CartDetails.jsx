@@ -14,10 +14,10 @@ const CartDetails = () => {
       <div className="overflow-x-auto  rounded-xl">
         <table className="table text-center">
           <thead >
-            <tr className=" text-black text-2xl">
+            <tr className=" text-black text-lg md:text-2xl text-center">
            
               <th >Product</th>
-              <th >Category</th>
+              <th className="hidden md:table-cell"  >Category</th>
               <th >Price</th>
               <th></th>
             </tr>
@@ -33,22 +33,22 @@ const CartDetails = () => {
                   <td>
                     <div className="flex items-center gap-3">
                       <div >
-                        <div className="w-12 h-12">
-                          <img src={item.image}  />
+                        <div className="w-12 h-12 shrink-0">
+                          <img className="w-12 h-12 object-cover" src={item.image}  />
                         </div>
                       </div>
                       <div className="text-left">
-                        <p className="font-semibold">{item.title}</p>
-                        <p className="text-sm opacity-70">{item.brand}</p>
+                        <p className="font-medium text-sm md:text-base">{item.title}</p>
+                        <p className="text-xs md:text-sm opacity-70">{item.brand}</p>
                       </div>
                     </div>
                   </td>
 
-                  <td className="capitalize">{item.category}</td>
+                  <td className="capitalize hidden md:table-cell">{item.category}</td>
                   <td className="font-semibold">{item.price}</td>
                   <td>
-                    <button onClick={()=>removeItem(item.id)} className=" bg-amber-200 px-4 py-1 rounded-lg
-                     cursor-pointer">Delete</button>
+                    <button onClick={()=>removeItem(item.id)} className=" bg-amber-200 px-3 py-1 rounded-lg
+                     text-sm md:text-base">Delete</button>
                   </td>
                 </tr>
               ))
@@ -63,22 +63,21 @@ const CartDetails = () => {
         </table>
       </div>
       {/* subtotal */}
-      <div className=" mt-4 flex justify-center text-lg  font-bold">
-              <span>TOTAL:</span>
+      <div className=" mt-6 flex justify-center text-lg  font-bold">
+              <span className=" mr-2">TOTAL:</span>
               <span className=" font-medium ">TK.{total}</span> 
             </div>
       <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-10">
 
   {/* Coupon section */}
-  <div className="w-full md:w-1/2 flex items-center  gap-3 md:ml-12 mt-8">
+  <div className="w-full md:w-1/2 flex items-center gap-3">
     <input
       type="text"
       placeholder="Coupon code"
-      className="w-full md:w-2/3 border border-gray-400 rounded-lg px-3 py-2" />
+      className="w-full md:w-2/3 border border-gray-400 rounded-lg px-3 py-2 ml-2" />
 
-    <button className="bg-black hover:bg-gray-900 text-white px-5 py-2 rounded-lg
-     font-semibold transition">
-      Apply Coupon
+    <button className="bg-black hover:bg-gray-900 text-white px-3 md:px-5 py-2 rounded-lg font-semibold">
+      Apply 
     </button>
   </div>
 

@@ -62,14 +62,14 @@ const ProductDetails = ({ productId }) => {
         </div>
       )}
       <dialog id="my_modal_3" className="modal">
-        <div className="modal-box max-w-4xl w-full">
+        <div className="modal-box max-w-[95vw] md:max-w-4xl w-full">
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
           </form>
-          <div className=" grid grid-cols-2 gap-8">
+          <div className=" grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* left side */}
             <div>
-               <img className=" h-96 w-full" src={product.image}></img>
+               <img className=" w-full h-64 md:h-96 object-contain rounded-lg" src={product.image}></img>
                <div className=" grid grid-cols-3 gap-1">
                   <div className=" bg-[#F8F8F8] border border-gray-400">
                     <img  src={product.image}></img>
@@ -84,10 +84,10 @@ const ProductDetails = ({ productId }) => {
             </div>
 
               {/* right side */}
-            <div className=" mt-16">
+            <div className=" mt-2 md:mt-6">
               {/* title and rating */}
               <div className=" mb-4">
-                  <h1 className="text-lg md:text-2xl font-bold mb-2">{product.title}</h1>
+                  <h1 className="text-xl md:text-2xl font-bold mb-2">{product.title}</h1>
                <div className=" flex items-center gap-1">
                 <span>{product.rating}</span>
                 <MdOutlineStar></MdOutlineStar>
@@ -104,7 +104,7 @@ const ProductDetails = ({ productId }) => {
               {/* description */}
               <div className=" mt-4 space-y-3">
                 <p className=" text-gray-500">{product.description}</p>
-                <p className=" font-medium text-lg text-gray-700">{product.stock} left</p>
+                <p className=" text-gray-500 text-sm md:text-base">{product.stock} left</p>
               </div>
               {/* button */}
               <div className=" mt-6">

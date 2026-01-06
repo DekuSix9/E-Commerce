@@ -40,7 +40,7 @@ const CategoryDetails = () => {
             </div>
             {/* success alert */}
              {success && (
-        <div className="fixed top-6 right-6 z-50">
+        <div className="fixed top-4 right-3 sm:top-6 sm:right-6 z-50">
           <div role="alert" className="alert alert-success">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -62,35 +62,35 @@ const CategoryDetails = () => {
       )}
              
                {/* products Details */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-4 md:gap-8 py-10 md:py-16">
              {
                categoryDetails.map((p) => (
-                 <div key={p.id} className=" py-12">
+                 <div key={p.id} className="py-0 md:py-10">
                    <div className="bg-[#F8F8F8] rounded-2xl">
                      {/* badge and cart logo */}
                      <div className="flex justify-between pt-3 px-3">
-                       <button className="bg-[#E27A1E] rounded-lg px-3 text-md font-bold text-white">
+                       <button className="bg-[#E27A1E] rounded-lg px-3 text-sm md:text-md font-bold text-white">
                          {p.badge}
                        </button>
-                       <img onClick={()=>addToCartHandler(p)} className=" cursor-pointer" src={cartLogo} alt="cart" />
+                       <img onClick={()=>addToCartHandler(p)} className=" cursor-pointer w-6 md:w-10" src={cartLogo} alt="cart" />
                      </div>
            
                      {/* product image */}
-                     <div onClick={()=>openModal(p.id)} className="flex items-center justify-center pb-14 pt-6 cursor-pointer">
+                     <div onClick={()=>openModal(p.id)} className="flex items-center justify-center pb-10 pt-6 cursor-pointer">
                        <img className="h-48 w-52 " src={p.image} alt={p.title} />
                      </div>
                    </div>
            
                    {/* prices and title */}
                    <div onClick={()=>openModal(p.id)} className="flex flex-col items-start mt-4 cursor-pointer">
-                     <h1 className="text-lg md:text-2xl font-medium mb-1">{p.title}</h1>
+                     <h1 className="text-lg md:text-xl font-medium mb-1">{p.title}</h1>
            
-                     <span className="relative text-[#BDBDBD] text-lg">
+                     <span className="relative text-[#BDBDBD] text-sm md:text-lg">
                        Tk.{p.oldPrice}
                        <span className="absolute left-0 top-1/2 w-full h-px bg-[#737373]"></span>
                      </span>
            
-                     <span className="text-[#E27A1E] font-medium text-lg">
+                     <span className="text-[#E27A1E] font-medium text-lg md:text-xl">
                        Tk.{p.price}
                      </span>
                      </div>
