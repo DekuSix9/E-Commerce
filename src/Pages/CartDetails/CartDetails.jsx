@@ -3,16 +3,12 @@ import { CartProvider } from "../../Layout/CartContext/CartContext";
 import { Link } from "react-router-dom";
 
 const CartDetails = () => {
-  const { cart,removeItem } = useContext(CartProvider);
+  const { cart,removeItem,total } = useContext(CartProvider);
 
-  const subtotal=cart.reduce((sum,item)=>{
-    const price=parseFloat(item.price);
-    return sum+price;
-
-  },0)
+  
 
   return (
-    <div className="max-w-6xl mx-auto my-12">
+    <div className="max-w-6xl mx-auto my-12 font-open">
      
 
       <div className="overflow-x-auto  rounded-xl">
@@ -68,8 +64,8 @@ const CartDetails = () => {
       </div>
       {/* subtotal */}
       <div className=" mt-4 flex justify-center text-lg  font-bold">
-              <span>SUBTOTAL:</span>
-              <span>${subtotal.toFixed(2)}</span> 
+              <span>TOTAL:</span>
+              <span className=" font-medium ">TK.{total}</span> 
             </div>
       <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-10">
 

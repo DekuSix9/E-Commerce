@@ -95,9 +95,9 @@ const ProductDetails = ({ productId }) => {
               </div>
               {/* price */}
               <div>
-                <h2 className=" font-semibold">{product.price}</h2>
+                <h2 className=" font-semibold">Tk.{product.price}</h2>
                  <span className="relative text-[#BDBDBD] text-lg">
-            {product.oldPrice}
+            Tk.{product.oldPrice}
             <span className="absolute left-0 top-1/2 w-full h-px bg-[#737373]"></span>
           </span>
               </div>

@@ -86,12 +86,12 @@ const CategoryDetails = () => {
                      <h1 className="text-lg md:text-2xl font-medium mb-1">{p.title}</h1>
            
                      <span className="relative text-[#BDBDBD] text-lg">
-                       {p.oldPrice}
+                       Tk.{p.oldPrice}
                        <span className="absolute left-0 top-1/2 w-full h-px bg-[#737373]"></span>
                      </span>
            
                      <span className="text-[#E27A1E] font-medium text-lg">
-                       {p.price}
+                       Tk.{p.price}
                      </span>
                      </div>
                      </div>

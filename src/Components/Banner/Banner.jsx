@@ -44,19 +44,19 @@ const Banner = () => {
                </div>
 
               {/* top right logo */}
-              <div className="absolute top-16 right-16">
+              <div className="absolute top-6 md:top-16 right-6 md:right-16">
                 <img src={logo} className="w-6 md:w-8" />
               </div>
 
               {/* bottom left price */}
-              <div className="absolute bottom-16 left-16 text-white">
+              <div className="absolute bottom-6 md:bottom-16 left-6 md:left-16 text-white">
                 <p className="text-xl md:text-2xl ">
                   {slide.price}
                 </p>
               </div>
 
               {/* bottom right button */}
-              <div className="absolute bottom-16 right-16">
+              <div className="absolute bottom-6 md:bottom-16 right-6 md:right-16">
                 <button className="bg-white text-black font-semibold px-4 py-2 rounded-lg hover:bg-gray-200">
                   Buy Now
                 </button>

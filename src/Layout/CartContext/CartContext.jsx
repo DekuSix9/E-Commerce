@@ -23,13 +23,24 @@ const CartContext = ({children}) => {
     const addToCart=(product)=>{
         setCart([...cart,product])
     }
+     
+    const total = cart.reduce((sum, item) => {
+    const price = parseFloat(item?.price) || 0;
+    return sum + price;
+  }, 0);
 
     
-    const removeItem=(id)=>{
-      setCart(cart.filter(item=>item.id!==id))
-    }
+   const removeItem = (id) => {
+  const index = cart.findIndex(item => item.id === id); 
+  if (index !== -1) {
+    const newCart = [...cart];
+    newCart.splice(index, 1); 
+    setCart(newCart);
+  }
+}
 
-    const cartInfo={addToCart,cart,removeItem}
+
+    const cartInfo={addToCart,cart,removeItem,total}
 
 
     return (
