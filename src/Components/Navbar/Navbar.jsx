@@ -27,7 +27,7 @@ const Navbar = () => {
           <div className="hidden md:flex flex-1 justify-center gap-6 lg:gap-10">
             <NavLink className="hover:text-[#E27A1E]">Home</NavLink>
             <NavLink to='/allproduct' className="hover:text-[#E27A1E]">All Products</NavLink>
-            <NavLink className="hover:text-[#E27A1E]">About Us</NavLink>
+            <NavLink to='/about' className="hover:text-[#E27A1E]">About Us</NavLink>
             <NavLink className="hover:text-[#E27A1E]">Shop</NavLink>
             <NavLink className="hover:text-[#E27A1E]">Contact Us</NavLink>
           </div>
@@ -87,7 +87,7 @@ const Navbar = () => {
           <div className="md:hidden mt-4 p-4 rounded-lg shadow-lg bg-white space-y-4">
             <NavLink className="block">Home</NavLink>
             <NavLink to='/allproduct'  className="block">All Products</NavLink>
-            <NavLink className="block">About Us</NavLink>
+            <NavLink to='/about' className="block">About Us</NavLink>
             <NavLink className="block">Shop</NavLink>
             <NavLink className="block">Contact Us</NavLink>
           </div>

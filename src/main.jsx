@@ -17,6 +17,7 @@ import Register from './Pages/Register/Register';
 import AuthProvide from './Provider/AuthProvider/AuthProvide';
 import PrivateLayout from './Layout/PrivateLayout/PrivateLayout';
 import AllProduct from './Pages/AllProduct/AllProduct';
+import About from './Pages/About Us/About';
 
 
 
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
     {
       path:'allproduct',
       element:<AllProduct></AllProduct>
+    },
+    {
+      path:'about',
+      element:<About></About>
     }
       
     ]
