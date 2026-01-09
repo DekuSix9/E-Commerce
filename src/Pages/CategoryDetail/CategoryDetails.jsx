@@ -65,7 +65,7 @@ const CategoryDetails = () => {
                     <div className="grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-4 md:gap-8 py-10 md:py-16">
              {
                categoryDetails.map((p) => (
-                 <div key={p.id} className="py-0 md:py-10">
+                 <div key={p.id} className="py-0 ">
                    <div className="bg-[#F8F8F8] rounded-2xl">
                      {/* badge and cart logo */}
                      <div className="flex justify-between pt-3 px-3">

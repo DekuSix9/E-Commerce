@@ -4,6 +4,7 @@ import { GrMoney } from "react-icons/gr";
 import { FiHeadphones } from "react-icons/fi";
 import manager from '../../assets/About/manager.jpg'
 import support from '../../assets/About/head-support.jpg'
+import { Link } from 'react-router-dom';
 
 
 
@@ -18,7 +19,8 @@ const About = () => {
                     <div>
                         <h1 className=' font-bold text-xl md:text-2xl '>ABOUT US</h1>
                         <h1 className=' font-bold text-3xl md:text-4xl'>ShopEase</h1>
-                        <button className=' bg-black text-white px-6 py-2.5 mt-4 md:mt-6 rounded'>CONTACT</button>
+                        <Link to='/contact'><button  className=' bg-black text-white px-6 py-2.5
+                         mt-4 md:mt-6 rounded cursor-pointer'>CONTACT</button></Link>
                     </div>
 
                 </div>

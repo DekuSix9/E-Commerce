@@ -29,7 +29,7 @@ const Navbar = () => {
             <NavLink to='/allproduct' className="hover:text-[#E27A1E]">All Products</NavLink>
             <NavLink to='/about' className="hover:text-[#E27A1E]">About Us</NavLink>
             <NavLink className="hover:text-[#E27A1E]">Shop</NavLink>
-            <NavLink className="hover:text-[#E27A1E]">Contact Us</NavLink>
+            <NavLink to='/contact' className="hover:text-[#E27A1E]">Contact Us</NavLink>
           </div>
 
           {/* Desktop Icons */}
@@ -89,7 +89,7 @@ const Navbar = () => {
             <NavLink to='/allproduct'  className="block">All Products</NavLink>
             <NavLink to='/about' className="block">About Us</NavLink>
             <NavLink className="block">Shop</NavLink>
-            <NavLink className="block">Contact Us</NavLink>
+            <NavLink to='/contact' className="block">Contact Us</NavLink>
           </div>
         )}
       </div>

@@ -18,6 +18,7 @@ import AuthProvide from './Provider/AuthProvider/AuthProvide';
 import PrivateLayout from './Layout/PrivateLayout/PrivateLayout';
 import AllProduct from './Pages/AllProduct/AllProduct';
 import About from './Pages/About Us/About';
+import Contact from './Pages/Contact/Contact';
 
 
 
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
     {
       path:'about',
       element:<About></About>
+    },
+    {
+      path:'contact',
+      element:<Contact></Contact>
     }
       
     ]
