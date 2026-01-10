@@ -11,6 +11,7 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvide";
 const ProductDetails = ({ productId }) => {
   const [product, setProduct] = useState(null);
   const {addToCart}=useContext(CartProvider);
+  const [mainImage,setMainImage]=useState("");
   const {user}=useContext(AuthContext);
   const [success, setSuccess] = useState(false);
 
@@ -29,6 +30,7 @@ const ProductDetails = ({ productId }) => {
       .then(data => {
         const productDetail = data.find(item => item.id === productId);
         setProduct(productDetail);
+        setMainImage(productDetail.image)
       });
   }, [productId]);
 
@@ -62,23 +64,23 @@ const ProductDetails = ({ productId }) => {
         </div>
       )}
       <dialog id="my_modal_3" className="modal">
-        <div className="modal-box max-w-[95vw] md:max-w-4xl w-full">
+        <div className="modal-box max-w-[90vw] md:max-w-3xl  ">
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
           </form>
           <div className=" grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* left side */}
             <div>
-               <img className=" w-full h-64 md:h-96 object-contain rounded-lg" src={product.image}></img>
+               <img className=" w-full h-64 md:h-96 object-contain rounded-lg" src={mainImage}></img>
                <div className=" grid grid-cols-3 gap-1">
                   <div className=" bg-[#F8F8F8] border border-gray-400">
-                    <img  src={product.image}></img>
+                    <img onClick={() => setMainImage(product.image1)} src={product.image1}></img>
                   </div>
                   <div className=" bg-[#F8F8F8] border border-gray-400" >
-                     <img src={product.image}></img>
+                    <img onClick={() => setMainImage(product.image2)} src={product.image2}></img>
                   </div>
                   <div className=" bg-[#F8F8F8] border border-gray-400 ">
-                   <img src={product.image}></img>
+                   <img onClick={() => setMainImage(product.image3)} src={product.image3}></img>
                   </div>
                   </div>
             </div>
