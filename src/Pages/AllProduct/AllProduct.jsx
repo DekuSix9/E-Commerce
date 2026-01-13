@@ -9,6 +9,7 @@ const AllProduct = () => {
      const [products,setProducts]=useState([]);
         const [visible,setVisible]=useState(8);
         const[modal,setModal]=useState(null);
+         const [search, setSearch] = useState("");
         const{addToCart}=useContext(CartProvider);
         const{user}=useContext(AuthContext);
          const [success, setSuccess] = useState(false);
@@ -19,10 +20,12 @@ const AllProduct = () => {
                  .then(data=>setProducts(data))
              },[]);
 
+             //  see more
              const handleSeeMore = () => {
        setVisible(prev => prev + 4);
           };
 
+      //  add to cart
         const addToCartHandler=(product)=>{
             if(!user){
                 alert("please login")
@@ -33,19 +36,30 @@ const AllProduct = () => {
    
        setTimeout(() => setSuccess(false), 3000);
         }
-
+        
+        // filter for search
+       const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(search.toLowerCase()) );
+   
+      //  openModal
    const openModal=(id)=>{
     setModal(id);
     document.getElementById("my_modal_3").showModal();
    }
 
 
-
-
-
     return (
          <div className=" bg-[#F8F8F8]">
             <div className=" max-w-11/12 mx-auto  ">
+            <div className=" flex items-center justify-center">
+              <input type="text"  value={search}  placeholder="Search products..."
+               className="border p-2 w-full md:w-[25%] rounded-lg mt-6" 
+               onChange={(e) => {
+              setSearch(e.target.value);
+              setVisible(8); 
+            }}>
+            </input>
+            </div>
              
              {success && (
           <div className="fixed top-4 right-3 sm:top-6 sm:right-6 z-50">
@@ -71,7 +85,7 @@ const AllProduct = () => {
             <div className=" grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-4 md:gap-8 py-10 md:py-16 ">
                
                 {
-                products.slice(0,visible).map((p)=>
+                filteredProducts.slice(0,visible).map((p)=>
                 <div key={p.id} >
                     <div className=" bg-[#F8F8F8] rounded-2xl ">
                         {/* badge and cart logo */}
@@ -107,7 +121,7 @@ const AllProduct = () => {
             </div>
                {/* see more button */}
                {
-                visible<products.length &&(
+                visible<filteredProducts.length &&(
                       <div className=" flex items-center justify-center pb-10">
             <button onClick={handleSeeMore} className=" bg-black text-white rounded-xl px-5 py-2 md:px-6 md:py-3">Show More</button>
                </div>
