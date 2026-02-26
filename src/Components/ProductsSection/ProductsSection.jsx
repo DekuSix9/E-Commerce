@@ -75,7 +75,7 @@ const ProductsSection = () => {
                 uniqueCategory.map(cate=>
                 <div key={cate} >
                        
-                         <button onClick={()=>setSelected(cate)} className={`capitalize px-4 py-1 rounded-lg transition-colors duration-300 ease-in-out ${
+              <button onClick={()=>setSelected(cate)} className={`capitalize px-4 py-1 rounded-lg transition-colors duration-300 ease-in-out ${
               selected === cate
                 ? "bg-[#F8F8F8] text-[#E27A1E]"
                 : "bg-[#E27A1E] text-white hover:bg-[#F8F8F8] hover:text-[#E27A1E]"
@@ -93,7 +93,7 @@ const ProductsSection = () => {
   {
     filteredProduct.slice(0,visible).map((p) => (
       <div  key={p.id} className=" py-0 md:py-10">
-        <div className="bg-[#F8F8F8] rounded-2xl">
+        <div className="p-4 border border-gray-200 rounded-2xl">
           {/* badge and cart logo */}
           <div className="flex justify-between pt-3 px-3">
             <button className="bg-[#E27A1E] rounded-lg px-3 text-sm md:text-md font-bold text-white">

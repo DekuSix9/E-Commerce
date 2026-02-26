@@ -9,13 +9,12 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvide";
 const CategoryDetails = () => {
     const {category}=useParams();
     const categoryData=useLoaderData();
-    const categoryDetails=categoryData.filter((item)=>item.category.toLowerCase()===category.toLowerCase());
     const [modal,setModal]=useState(null);
     const {addToCart}=useContext(CartProvider);
     const {user}=useContext(AuthContext);
     const [success, setSuccess] = useState(false);
 
-
+   const categoryDetails=categoryData.filter((item)=>item.category.toLowerCase()===category.toLowerCase());
       const addToCartHandler=(product)=>{
             if(!user){
                 alert("please login")
@@ -33,7 +32,7 @@ const CategoryDetails = () => {
 
 
     return (
-        <div className=" max-w-11/12 mx-auto font-manrope py-10">
+        <div className=" max-w-11/12 mx-auto font-manrope py-4 md:py-6">
             <div className=" flex flex-col items-center gap-1">
                 <h1 className=" capitalize  text-2xl md:text-3xl font-bold mb-2">{category}</h1>
              <button className=" border border-[#737373] px-8 py-1 rounded-lg font-medium">{categoryDetails.length} Products</button>
@@ -62,11 +61,11 @@ const CategoryDetails = () => {
       )}
              
                {/* products Details */}
-                    <div className="grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-4 md:gap-8 py-10 md:py-16">
+                    <div className="grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-4 md:gap-8 py-6 md:py-10">
              {
                categoryDetails.map((p) => (
-                 <div key={p.id} className="py-0 ">
-                   <div className="bg-[#F8F8F8] rounded-2xl">
+                 <div key={p.id} >
+                   <div className="p-4 border border-gray-200 rounded-2xl">
                      {/* badge and cart logo */}
                      <div className="flex justify-between pt-3 px-3">
                        <button className="bg-[#E27A1E] rounded-lg px-3 text-sm md:text-md font-bold text-white">

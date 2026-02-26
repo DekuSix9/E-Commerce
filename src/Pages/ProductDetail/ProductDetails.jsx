@@ -41,7 +41,7 @@ const ProductDetails = ({ productId }) => {
   
 
   return (
-    <div className=" font-open">
+    <div className=" font-open bg-white">
        {success && (
         <div className="fixed top-6 right-6 z-50">
           <div role="alert" className="alert alert-success">
@@ -63,8 +63,8 @@ const ProductDetails = ({ productId }) => {
           </div>
         </div>
       )}
-      <dialog id="my_modal_3" className="modal">
-        <div className="modal-box max-w-[90vw] md:max-w-3xl  ">
+      <dialog id="my_modal_3" className="modal ">
+        <div className="modal-box max-w-[90vw] md:max-w-3xl   ">
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
           </form>

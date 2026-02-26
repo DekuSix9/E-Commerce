@@ -14,8 +14,8 @@ const Navbar = () => {
   const handleLogOut = () => logOut();
 
   return (
-    <div className='sticky top-0 bg-white z-50 shadow-sm'>
-      <div className="max-w-7xl mx-auto px-4 py-4 md:py-6">
+    <div className='sticky top-0 bg-white z-50 '>
+      <div className="max-w-7xl mx-auto px-4 py-4 ">
         <nav className="flex items-center justify-between">
 
           {/* Logo */}

@@ -5,12 +5,16 @@
 }
 
 
-
-
-
-
 @import "tailwindcss";
 @plugin "daisyui";
 
 
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+}
 

@@ -45,7 +45,7 @@ const FeatureProducts = () => {
 
 
     return (
-        <div className=" bg-[#F8F8F8]">
+        <div >
             <div className=" max-w-11/12 mx-auto  ">
              <h1 className="text-center pt-8 text-2xl md:text-3xl font-bold">Featured products</h1>
              {success && (
@@ -69,43 +69,69 @@ const FeatureProducts = () => {
             </div>
           </div>
         )}
-            <div className=" grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-4 md:gap-8 py-10 md:py-16 ">
-               
-                {
-                featuredProducts.slice(0,visible).map((p)=>
-                <div key={p.id} >
-                    <div className=" bg-[#F8F8F8] rounded-2xl ">
-                        {/* badge and cart logo */}
-                       <div className=" flex justify-between pt-3 px-3">
-                        <button className=" bg-[#E27A1E] rounded-lg px-3 text-sm md:text-md font-bold text-white">{p.badge}</button>
-                          <img onClick={()=>addToCartHandler(p)} className=" cursor-pointer w-6 md:w-10"  src={cartLogo}></img>
-                    </div>
-                    {/* product image */}
-                   <div onClick={()=>openModal(p.id)} className=" flex items-center justify-center pb-10 pt-6 cursor-pointer">
-                       <img className=" h-48 w-52 " src={p.image}></img>
-                   </div>
-                     
-                    </div>
-                    
-                    {/* prices and title */}
-                    <div onClick={()=>openModal(p.id)} className="flex flex-col items-start mt-3 cursor-pointer">
-                        <h1 className=" text-lg md:text-xl font-medium mb-1">{p.title}</h1>
-             <span className="relative text-[#BDBDBD] text-sm md:text-lg">
-             TK.{p.oldPrice}
-            <span className="absolute left-0 top-1/2 w-full h-px bg-[#737373]"></span>
-               </span>
+           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 py-6 md:py-12">
 
-              <span className="text-[#E27A1E] font-medium text-lg md:text-xl">
-                    Tk.{p.price}
-                 </span>
-                  </div>
+  {featuredProducts.slice(0, visible).map((p) => (
+    <div key={p.id}>
 
-                         
-                </div>
-                
-            )
-            }
-            </div>
+      {/* CARD */}
+      <div className=" rounded-2xl relative p-4 border border-gray-200">
+
+        {/* Badge */}
+        {p.badge && (
+          <span className="absolute top-4 left-4 bg-[#E27A1E] rounded-lg px-3 py-2 text-sm md:text-md font-bold text-white">
+            {p.badge}
+          </span>
+        )}
+
+        {/* Icons */}
+        <div className="absolute top-4 right-4 flex flex-col gap-2">
+          <button
+            onClick={() => addToCartHandler(p)}
+            className="bg-white w-9 h-9 rounded-full shadow flex items-center justify-center hover:scale-105 transition">
+            <img className="w-6 md:w-10 cursor-pointer" src={cartLogo} alt="cart" />
+          </button>
+        </div>
+
+        {/* Product Image */}
+        <div
+          onClick={() => openModal(p.id)}
+          className="flex items-center justify-center pt-10 pb-6 cursor-pointer"
+        >
+          <img
+            className="h-44 md:h-48 object-contain"
+            src={p.image}
+            alt={p.title}
+          />
+        </div>
+      </div>
+
+      {/* TITLE & PRICE */}
+      <div
+        onClick={() => openModal(p.id)}
+        className="mt-3 cursor-pointer"
+      >
+        <h1 className="text-sm md:text-base font-medium mb-1">
+          {p.title}
+        </h1>
+
+        {/* Old Price */}
+        <span className="relative text-[#BDBDBD] text-xs md:text-sm">
+          Tk.{p.oldPrice}
+          <span className="absolute left-0 top-1/2 w-full h-px bg-[#737373]"></span>
+        </span>
+
+        {/* New Price */}
+        <p className="text-[#E27A1E] font-semibold text-base md:text-lg">
+          Tk.{p.price}
+        </p>
+      </div>
+
+    </div>
+  ))}
+
+</div>
+
                {/* see more button */}
                {
                 visible<featuredProducts.length &&(

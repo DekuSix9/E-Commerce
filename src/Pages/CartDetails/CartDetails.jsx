@@ -8,7 +8,7 @@ const CartDetails = () => {
   
 
   return (
-    <div className="max-w-6xl mx-auto my-12 font-open">
+    <div className="max-w-6xl mx-auto my-12 font-open bg-white">
      
 
       <div className="overflow-x-auto  rounded-xl">

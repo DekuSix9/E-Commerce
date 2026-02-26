@@ -9,7 +9,6 @@ import Root from './Layout/Root/Root';
 import Home from './Layout/Home/Home';
 import CategoryDetails from './Pages/CategoryDetail/CategoryDetails';
 import CartContext from './Layout/CartContext/CartContext';
-
 import CartDetails from './Pages/CartDetails/CartDetails';
 import CheckOut from './Pages/CheckOut/CheckOut';
 import Login from './Pages/Login/Login';

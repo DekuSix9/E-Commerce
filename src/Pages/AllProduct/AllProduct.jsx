@@ -49,7 +49,7 @@ const AllProduct = () => {
 
 
     return (
-         <div className=" bg-[#F8F8F8]">
+         <div className="">
             <div className=" max-w-11/12 mx-auto  ">
             <div className=" flex items-center justify-center">
               <input type="text"  value={search}  placeholder="Search products..."
@@ -82,12 +82,12 @@ const AllProduct = () => {
             </div>
           </div>
         )}
-            <div className=" grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-4 md:gap-8 py-10 md:py-16 ">
+            <div className=" grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-4 md:gap-8 py-6 md:py-10 ">
                
                 {
                 filteredProducts.slice(0,visible).map((p)=>
                 <div key={p.id} >
-                    <div className=" bg-[#F8F8F8] rounded-2xl ">
+                    <div className=" p-4 border border-gray-200  rounded-2xl ">
                         {/* badge and cart logo */}
                        <div className=" flex justify-between pt-3 px-3">
                         <button className=" bg-[#E27A1E] rounded-lg px-3 text-sm md:text-md font-bold text-white">{p.badge}</button>
