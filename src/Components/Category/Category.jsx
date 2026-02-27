@@ -30,14 +30,14 @@ const Category = () => {
           }
 
     return (
-        <div className=" max-w-11/12 mx-auto py-16">
+        <div className=" max-w-11/12 mx-auto py-8 md:py-12">
 
             <div className=" grid grid-cols-2 md:grid-cols-4 gap-4">
                    {
                 uniqueCategory.map((cate)=>
                 
-                <Link to={`/category/${cate}`} className=" bg-[#F8F8F8] rounded-2xl py-8" key={cate.id}>
-                    <div className=" flex justify-between items-center mb-4 px-4 ">
+                <Link to={`/category/${cate}`} className=" bg-[#F8F8F8] rounded-2xl py-4" key={cate.id}>
+                    <div className=" flex justify-between items-center mb-4 px-2 md:px-4 ">
                         <div>
                             <p className=" text-[#737373] text-lg ">{categories.filter(item=>item.category===cate).length} Items</p>
                           <h2 className=" capitalize text-xl md:text-2xl font-semibold">{cate}</h2>
@@ -47,7 +47,7 @@ const Category = () => {
                         </div>
                     </div>
                    
-                  <img className="w-28 h-28 mx-auto mb-4" src={Categoryimage[cate]}>
+                  <img className=" w-20 md:w-28 h-20 md:h-28 mx-auto " src={Categoryimage[cate]}>
                   </img>
   
 
