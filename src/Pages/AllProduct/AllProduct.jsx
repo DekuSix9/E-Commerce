@@ -68,8 +68,7 @@ const AllProduct = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 shrink-0 stroke-current"
                 fill="none"
-                viewBox="0 0 24 24"
-              >
+                viewBox="0 0 24 24"  >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -87,44 +86,55 @@ const AllProduct = () => {
                 {
                 filteredProducts.slice(0,visible).map((p)=>
                 <div key={p.id} >
-                    <div className=" p-4 border border-gray-200  rounded-2xl ">
-                        {/* badge and cart logo */}
-                       <div className=" flex justify-between pt-3 px-3">
-                        <button className=" bg-[#E27A1E] rounded-lg px-3 text-sm md:text-md font-bold text-white">{p.badge}</button>
-                          <img onClick={()=>addToCartHandler(p)} className=" cursor-pointer w-6 md:w-10"  src={cartLogo}></img>
-                    </div>
+                    <div className=" pt-1 md:pt-4 border border-gray-200 relative  rounded-2xl ">
+                       {/* cart Icon */}
+                          <div className="absolute top-2 md:top-4 right-2 md:right-4">
+                            <button
+                              onClick={() => addToCartHandler(p)}
+                              className="   hover:scale-105 transition">
+                              <img
+                                src={cartLogo}
+                                alt="cart"
+                                className="w-6 md:w-10"/>
+                            </button>
+                          </div>
                     {/* product image */}
-                   <div onClick={()=>openModal(p.id)} className=" flex items-center justify-center pb-10 pt-6 cursor-pointer">
-                       <img className=" h-48 w-52 " src={p.image}></img>
+                   <div onClick={()=>openModal(p.id)} className=" flex items-center justify-center pt-10 pb-6 cursor-pointer">
+                       <img className="h-32 md:h-36 object-contain" src={p.image}></img>
                    </div>
                      
                     </div>
                     
                     {/* prices and title */}
-                    <div onClick={()=>openModal(p.id)} className="flex flex-col items-start mt-3 cursor-pointer">
-                        <h1 className=" text-lg md:text-xl font-medium mb-1">{p.title}</h1>
-             <span className="relative text-[#BDBDBD] text-sm md:text-lg">
-             TK.{p.oldPrice}
-            <span className="absolute left-0 top-1/2 w-full h-px bg-[#737373]"></span>
-               </span>
+                       <div onClick={() => openModal(p.id)} className="mt-0 md:mt-3 cursor-pointer">
+              <h1 className="text-sm md:text-base font-medium mt-0.5 md:mt-1">
+                 {p.title}
+                   </h1>
 
-              <span className="text-[#E27A1E] font-medium text-lg md:text-xl">
-                    Tk.{p.price}
-                 </span>
-                  </div>
+    {/*old Price */}
+    <span className="relative text-gray-900 text-sm">
+      Tk.{p.oldPrice}
+      <span className="absolute left-0 top-1/2 w-full h-px bg-[#737373]"></span>
+    </span>
 
-                         
-                </div>
+        {/*new Price */}
+       <p className="text-[#E27A1E] font-semibold text-base md:text-lg">
+      Tk.{p.price}
+        </p>
+      </div>
+          
+             </div>
                 
             )
             }
             </div>
                {/* see more button */}
-               {
+                 {
                 visible<filteredProducts.length &&(
-                      <div className=" flex items-center justify-center pb-10">
-            <button onClick={handleSeeMore} className=" bg-black text-white rounded-xl px-5 py-2 md:px-6 md:py-3">Show More</button>
+                     <div className=" flex items-center justify-center pb-6 md:pb-8">
+            <button onClick={handleSeeMore} className=" bg-black text-white rounded-xl px-5 py-2 md:px-6 md:py-3 ">Show More</button>
                </div>
+
                 )
                }
               

@@ -96,17 +96,15 @@ const ProductsSection = () => {
   {/* Card */}
   <div className="rounded-2xl relative pt-1 md:pt-4 border border-gray-200">
 
-   
-
     {/* Cart Icon */}
-    <div className="absolute top-4 right-4">
+    <div className="absolute top-2 md:top-4 right-2 md:right-4">
       <button
         onClick={() => addToCartHandler(p)}
-        className=" w-9 h-9  rounded-full shadow flex items-center justify-center hover:scale-105 transition">
+        className="   hover:scale-105 transition">
         <img
           src={cartLogo}
           alt="cart"
-          className="w-8 md:w-12"/>
+          className="w-6 md:w-10"/>
       </button>
     </div>
 
@@ -117,8 +115,7 @@ const ProductsSection = () => {
       <img
         className="h-32 md:h-36 object-contain"
         src={p.image}
-        alt={p.title}
-      />
+        alt={p.title}  />
     </div>
   </div>
 

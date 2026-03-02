@@ -76,17 +76,17 @@ const FeatureProducts = () => {
 
         {/* Badge */}
         {p.badge && (
-          <span className="absolute top-4 left-4 bg-[#E27A1E] rounded-lg px-1 md:px-3 py-1 md:py-2 text-sm md:text-md font-bold text-white">
+          <span className="absolute top-2 md:top-4 left-2 md:left-4 bg-[#E27A1E] rounded-lg px-1 md:px-3 py-1 md:py-2 text-sm md:text-md font-bold text-white">
             {p.badge}
           </span>
         )}
 
         {/* Icons */}
-        <div className="absolute top-4 right-4 flex flex-col ">
+        <div className="absolute top-2 md:top-4 right-2 md:right-4 flex flex-col ">
           <button
             onClick={() => addToCartHandler(p)}
-            className=" w-9 h-9 rounded-full shadow flex items-center justify-center hover:scale-105 transition">
-            <img className="w-8 md:w-12 cursor-pointer" src={cartLogo} alt="cart" />
+            className="  hover:scale-105 transition">
+            <img className="w-6 md:w-10 cursor-pointer" src={cartLogo} alt="cart" />
           </button>
         </div>
 

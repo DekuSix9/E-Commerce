@@ -69,12 +69,12 @@ const CartDetails = () => {
             </div>
       <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-10">
 
-  {/* Coupon section */}
+  {/*coupon section */}
   <div className="w-full md:w-1/2 flex items-center gap-3">
     <input
       type="text"
       placeholder="Coupon code"
-      className="w-full md:w-2/3 border border-gray-400 rounded-lg px-3 py-2 ml-2" />
+      className="w-2/3 border border-gray-400 rounded-lg px-3 py-2 ml-2" />
 
     <button className="bg-black hover:bg-gray-900 text-white px-3 md:px-5 py-2 rounded-lg font-semibold">
       Apply 

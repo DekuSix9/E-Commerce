@@ -98,15 +98,15 @@ const ProductDetails = ({ productId }) => {
               {/* price */}
               <div>
                 <h2 className=" font-semibold">Tk.{product.price}</h2>
-                 <span className="relative text-[#BDBDBD] text-lg">
+                 <span className="relative text-gray-900 text-lg">
             Tk.{product.oldPrice}
             <span className="absolute left-0 top-1/2 w-full h-px bg-[#737373]"></span>
           </span>
               </div>
               {/* description */}
               <div className=" mt-4 space-y-3">
-                <p className=" text-gray-500">{product.description}</p>
-                <p className=" text-gray-500 text-sm md:text-base">{product.stock} left</p>
+                <p className=" text-gray-700">{product.description}</p>
+                <p className=" text-black font-semibold text-sm md:text-base">{product.stock} left</p>
               </div>
               {/* button */}
               <div className=" mt-6">
